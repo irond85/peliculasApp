@@ -1,17 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-slides>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    <ion-slide *ngFor="let pelicula of peliculasNuevas">
+      <IonCard class="card">
+          <IonCardHeader>
+            <IonCardTitle><h1>{{ pelicula.title }}</h1></IonCardTitle>
+          </IonCardHeader>
+          <br>
+          <IonCardContent>
+            <h5><strong>Fecha de lanzamiento: </strong>{{ pelicula.release_date }}</h5>
+            <p><strong>Descripción: </strong>{{ pelicula.overview }}</p>              
+          </IonCardContent>
+        </IonCard>
+    </ion-slide>
+
+  </ion-slides>
+
 </ion-content>
