@@ -1,20 +1,20 @@
 <ion-content>
 
-  <ion-slides>
+  <ion-slides [options]="slideOpts">
 
     <ion-slide *ngFor="let pelicula of peliculasNuevas">
-      <IonCard class="card">
+      <ion-card>
           <IonCardHeader>
             <IonCardTitle><h1>{{ pelicula.title }}</h1></IonCardTitle>
           </IonCardHeader>
+          <img [src]="pelicula.backdrop_path | imagen">
           <br>
           <IonCardContent>
             <h5><strong>Fecha de lanzamiento: </strong>{{ pelicula.release_date }}</h5>
             <p><strong>Descripción: </strong>{{ pelicula.overview }}</p>              
           </IonCardContent>
-        </IonCard>
+        </ion-card>
     </ion-slide>
-
   </ion-slides>
 
 </ion-content>
