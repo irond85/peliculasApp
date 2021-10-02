@@ -37,9 +37,6 @@ export class MoviesService {
     const inicio = `${ hoy.getFullYear() }-${ mesString }-01`;
     const fin = `${ hoy.getFullYear() }-${ mesString }-${ ultimoDia }`;
 
-    console.log("inicio", inicio);
-    console.log("fin", fin);
-
     return this.ejecutarQuery<RespuestaMDB>(`/discover/movie?primary_release_date.gte=${inicio}&primary_release_date.lte=${fin}`)
   }
 }
