@@ -1,22 +1,38 @@
 <ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>
+          Estrenos    
+        </h3>
+      </ion-col>          
+    </ion-row>
+  </ion-grid>
 
-  <ion-slides [options]="slideOpts">
-    <ion-slide *ngFor="let pelicula of peliculasNuevas">
-      <ion-card>        
-        <ion-card-header>
-          <ion-text color="primary">
-            <h1>{{ pelicula.title }}</h1>              
-          </ion-text>
-        </ion-card-header>
-        <ion-card-content>    
-          <ion-text color="secundary">
-            <p><strong>Fecha de lanzamiento: </strong>{{ pelicula.release_date }}</p>
-            <img [src]="pelicula.backdrop_path | imagen">
-            <p><strong>Descripción: </strong>{{ pelicula.overview }}</p>              
-          </ion-text>        
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+  <app-slideshow-backdrop [peliculas]="peliculasNuevas"></app-slideshow-backdrop>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>
+          Cartelera
+        </h3>
+      </ion-col>          
+    </ion-row>
+  </ion-grid>
+
+  <app-slide-show-poster [peliculas]="peliculasNuevas"></app-slide-show-poster>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>
+          Populares
+        </h3>
+      </ion-col>          
+    </ion-row>
+  </ion-grid>
+
+  <app-slideshow-pares [peliculas]="populares"></app-slideshow-pares>
 
 </ion-content>

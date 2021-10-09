@@ -20,6 +20,11 @@ export class MoviesService {
     return this.http.get<T>( query );
   }
   
+  getPopulares(){
+    const query = '/discover/movie?sort_by=popularity.desc';
+    return this.ejecutarQuery<RespuestaMDB>(query);
+  }
+
   //Metodo para consumir APIS
   getFeature(){
     const hoy = new Date();
