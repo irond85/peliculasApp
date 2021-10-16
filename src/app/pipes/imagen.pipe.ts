@@ -10,13 +10,10 @@ const URL = environment.imgPath;
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, size: string = 'w500'): string {
-
     if ( !img ){
       return './assets/no-banner-image.png';
     }
-
     const imgUrl = `${ URL }/${ size }/${ img }`;
-
     return imgUrl;
   }
 

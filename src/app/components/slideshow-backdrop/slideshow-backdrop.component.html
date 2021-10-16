@@ -1,16 +1,11 @@
 <ion-slides [options]="slideOpts">
   <ion-slide *ngFor="let pelicula of peliculas">
-    <ion-card>        
-      <!--<ion-card-header>
-        <ion-text color="primary">
-          <h1>{{ pelicula.title }}</h1>              
-        </ion-text>
-      </ion-card-header>-->
+    <ion-card (click)="verDetalle(pelicula.id)">        
       <ion-card-content>    
         <ion-text color="secundary">
-          <!--<p><strong>Fecha de lanzamiento: </strong>{{ pelicula.release_date }}</p>-->
+          
           <img [src]="pelicula.backdrop_path | imagen">
-          <!--<p><strong>Descripción: </strong>{{ pelicula.overview }}</p>              -->
+          
         </ion-text>        
       </ion-card-content>
     </ion-card>
