@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { MoviesService } from 'src/app/services/movies.service';
-import { PeliculaDetalle } from '../../interfaces/interfaces';
+import { Cast, PeliculaDetalle } from '../../interfaces/interfaces';
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -11,9 +13,17 @@ import { PeliculaDetalle } from '../../interfaces/interfaces';
 export class DetalleComponent implements OnInit {
 
   @Input() id;
-  pelicula: PeliculaDetalle;
+  pelicula: PeliculaDetalle = {};
+  actores: Cast[] = [];
+  oculto = 150;
 
-  constructor( private moviesService: MoviesService) { }
+  slideOptActores = {
+    slidesPerView: 3.3,
+    freeMode: true,
+    spaceBetween: -5
+  }
+
+  constructor( private moviesService: MoviesService, private modalCtrl: ModalController ) { }
 
   ngOnInit() {
     this.moviesService.getPeliculaDetalle(this.id).subscribe(resp => {
@@ -21,9 +31,17 @@ export class DetalleComponent implements OnInit {
     });
 
     this.moviesService.getActoresPelicula(this.id).subscribe(resp => {
-      console.log(resp)
+      this.actores = resp.cast;
     });
     
+  }
+
+  regresar() {
+    this.modalCtrl.dismiss();
+  }
+
+  addFavoritos() {
+    console.log("Add favorito");
   }
 
 }
