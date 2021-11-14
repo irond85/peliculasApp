@@ -1,5 +1,5 @@
 {
-  "name": "peliculasApp",
+  "name": "Movies App",
   "integrations": {
     "capacitor": {}
   },
